@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WBWDB - We Bend We Don't Break</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #faf9f6; color: #222; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .section-title { font-size: 2.2rem; margin-bottom: 1rem; }
+        .about-grid { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
+        .about-text { flex: 1 1 350px; }
+        .about-image img { border-radius: 15px; width: 350px; max-width: 100%; }
+        .brand-values { margin: 1rem 0; }
+        .value-tag { background: #e0e0e0; color: #333; border-radius: 20px; padding: 0.3rem 1rem; margin-right: 0.5rem; font-size: 0.95rem; }
+        .logo-note { margin-top:2rem;display:flex;align-items:center;gap:1rem; }
+        .logo-note img { height:60px;width:60px; }
+        .product-grid { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; }
+        .product-card { background: #fff; border-radius: 15px; box-shadow: 0 2px 8px #0001; flex: 1 1 250px; max-width: 270px; padding: 1rem; display: flex; flex-direction: column; align-items: center; }
+        .product-image { width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 10px; background: #f5f5f5; margin-bottom: 1rem; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .cap-gallery img { width: 48% !important; margin-right: 2%; }
+        .cap-gallery img:last-child { margin-right: 0; }
+        .product-info h3 { margin: 0.5rem 0 0.2rem 0; }
+        .product-info p { margin: 0 0 0.5rem 0; font-size: 1rem; }
+        .details-btn, .size-guide-btn { background: #222; color: #fff; border: none; border-radius: 5px; padding: 0.5rem 1rem; margin: 0.2rem; cursor: pointer; font-size: 1rem; }
+        .details-btn:hover, .size-guide-btn:hover { background: #444; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100vw; height: 100vh; overflow: auto; background: rgba(0,0,0,0.4); }
+        .modal-content { background: #fff; margin: 5% auto; padding: 2rem; border-radius: 10px; max-width: 600px; position: relative; }
+        .close { position: absolute; top: 1rem; right: 1rem; font-size: 2rem; color: #888; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: center; }
+        th { background: #f0f0f0; }
+        .size-guide-images { display: flex; gap: 1rem; margin-top: 1rem; justify-content: center; }
+        .size-guide-images img { height: 120px; border-radius: 8px; }
+        @media (max-width: 900px) {
+            .about-grid { flex-direction: column; }
+            .product-grid { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section id="about" class="about">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Clothing with a Backbone</h3>
+                    <p>Born from life's hardest moments, WBWDB was created to remind you: resilience looks good on you.</p>
+                    <p>We're not just fashion. We're a movement. From embossed statements stitched with power to silhouettes that honor every woman — modest or bold — we create pieces that speak strength without saying a word.</p>
+                    <p>We're here for the fighters. The ones who fell and stood taller. For the girls who got scars, stories, and standards. For the women raising kings and queens, building businesses, bouncing back from breakdowns.</p>
+                    <div class="brand-values">
+                        <span class="value-tag">Premium Quality</span>
+                        <span class="value-tag">Inclusive Design</span>
+                        <span class="value-tag">Real Empowerment</span>
+                        <span class="value-tag">Authentic Stories</span>
+                    </div>
+                    <div class="logo-note">
+                        <img src="images/caps.jpg" alt="WBWDB Logo">
+                        <span><strong>Front Pocket Logo:</strong> Embossed, 6 cm diameter</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/caps.jpg" alt="WBWDB Brand Story" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="products">
+            <h2 class="section-title">Our Collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/joggers.jpg" alt="Power Joggers" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Power Joggers</h3>
+                        <p>Comfort meets confidence in every step.</p>
+                        <button class="details-btn" data-product="joggers">Details</button>
+                        <button class="size-guide-btn">Size Guide</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/hoodie.jpg" alt="Resilience Hoodies" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Resilience Hoodies</h3>
+                        <p>Wrap yourself in warmth and strength.</p>
+                        <button class="details-btn" data-product="hoodie">Details</button>
+                        <button class="size-guide-btn">Size Guide</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/tee.jpg" alt="Mindset Tees" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mindset Tees</h3>
+                        <p>Wear your story with pride.</p>
+                        <button class="details-btn" data-product="tee">Details</button>
+                        <button class="size-guide-btn">Size Guide</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/skirt-fits.jpg" alt="Strength Skirts" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Strength Skirts</h3>
+                        <p>Three fits. Infinite possibilities.</p>
+                        <button class="details-btn" data-product="skirt">Details</button>
+                        <button class="size-guide-btn">Size Guide</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image cap-gallery">
+                        <img src="images/cap-black.jpg" alt="Classic Black Cap" loading="lazy">
+                        <img src="images/cap2-black.jpg" alt="Black Cap Style 2" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Signature Black Caps</h3>
+                        <p>Classic and bold WBWDB embroidery. Adjustable fit. Two iconic styles.</p>
+                        <button class="details-btn" data-product="caps">Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Size Guide Modal -->
+    <div id="sizeGuideModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeSizeGuide">&times;</span>
+        <h2>Size Guide</h2>
+        <p>All measurements are in inches. For the best fit, measure your waist, hip, and inseam.</p>
+        <table>
+          <thead>
+            <tr><th>Size</th><th>Waist</th><th>Hip</th><th>Inseam</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>S</td><td>28-30</td><td>34-36</td><td>32.5-33.5</td></tr>
+            <tr><td>S</td><td>31-33</td><td>37-39</td><td>32.5-33.5</td></tr>
+            <tr><td>M</td><td>34-35</td><td>40-42</td><td>33-35</td></tr>
+            <tr><td>L</td><td>36-38</td><td>43-44</td><td>35-36.5</td></tr>
+            <tr><td>XL</td><td>39-40</td><td>45-46</td><td>36.5-38</td></tr>
+            <tr><td>2XL</td><td>41-42</td><td>47-48</td><td>38-39.5</td></tr>
+            <tr><td>3XL</td><td>43-44</td><td>49-50</td><td>38-39.5</td></tr>
+            <tr><td>4XL</td><td>45-46</td><td>51-52</td><td>38-39.5</td></tr>
+          </tbody>
+        </table>
+        <div class="size-guide-images">
+          <img src="images/joggers-detail.jpg" alt="Joggers Detail">
+          <img src="images/skirt-fits.jpg" alt="Skirt Fits">
+        </div>
+        <p style="margin-top:1rem;"><strong>Front Pocket Logo:</strong> Embossed, 6 cm diameter</p>
+      </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productDetailsModal" class="modal">
+      <div class="modal-content" id="productDetailsContent">
+        <span class="close" id="closeProductDetails">&times;</span>
+        <!-- Dynamic content will be injected here -->
+      </div>
+    </div>
+
+    <script>
+    // Modal logic for Size Guide
+    const sizeGuideBtns = document.querySelectorAll('.size-guide-btn');
+    const sizeGuideModal = document.getElementById('sizeGuideModal');
+    const closeSizeGuide = document.getElementById('closeSizeGuide');
+    sizeGuideBtns.forEach(btn => btn.addEventListener('click', () => sizeGuideModal.style.display = 'block'));
+    closeSizeGuide.onclick = () => sizeGuideModal.style.display = 'none';
+    window.onclick = function(event) {
+      if (event.target == sizeGuideModal) sizeGuideModal.style.display = 'none';
+      if (event.target == productDetailsModal) productDetailsModal.style.display = 'none';
+    }
+
+    // Modal logic for Product Details
+    const detailsBtns = document.querySelectorAll('.details-btn');
+    const productDetailsModal = document.getElementById('productDetailsModal');
+    const productDetailsContent = document.getElementById('productDetailsContent');
+    const closeProductDetails = document.getElementById('closeProductDetails');
+    const productDetailsData = {
+      joggers: {
+        title: 'Power Joggers',
+        features: ['Premium French Terry', 'Embossed statement', 'Comfort fit'],
+        images: ['images/joggers.jpg', 'images/joggers-detail.jpg', 'images/joggers brown-detail.jpg'],
+        description: 'Comfort meets confidence in every step. Embossed with our signature message.'
+      },
+      hoodie: {
+        title: 'Resilience Hoodies',
+        features: ['350 GSM, 80% Organic Cotton, 20% Recycled Polyester', 'Embossed back message', 'Front pocket logo'],
+        images: ['images/hoodie.jpg', 'images/set.jpg'],
+        description: 'Wrap yourself in warmth and strength. Designed for resilience.'
+      },
+      tee: {
+        title: 'Mindset Tees',
+        features: ['350 GSM, 80% Organic Cotton, 20% Recycled Polyester', 'Embossed back message', 'Front pocket logo'],
+        images: ['images/tee.jpg', 'images/tee-detail.jpg'],
+        description: 'Wear your story with pride. Soft, strong, and empowering.'
+      },
+      skirt: {
+        title: 'Strength Skirts',
+        features: ['Three fits: Mini, Knee, Midi', 'Premium quality', 'Empowering design'],
+        images: ['images/skirt-fits.jpg', 'images/skirt-detail1.jpg', 'images/skirt-detail2.jpg'],
+        description: 'Three fits. Infinite possibilities. Designed for every woman.'
+      },
+      caps: {
+        title: 'Signature Black Caps',
+        features: ['Classic and bold embroidery', 'Adjustable fit', 'Two iconic styles'],
+        images: ['images/cap-black.jpg', 'images/cap2-black.jpg'],
+        description: 'Choose your style: classic or bold. Both feature our signature WBWDB embroidery.'
+      }
+    };
+    detailsBtns.forEach(btn => btn.addEventListener('click', function() {
+      const prod = btn.getAttribute('data-product');
+      const data = productDetailsData[prod];
+      if (!data) return;
+      productDetailsContent.innerHTML = `
+        <span class="close" id="closeProductDetails">&times;</span>
+        <h2>${data.title}</h2>
+        <p>${data.description}</p>
+        <ul>${data.features.map(f => `<li>${f}</li>`).join('')}</ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">${data.images.map(img => `<img src="${img}" alt="${data.title}" style="height:120px;">`).join('')}</div>
+      `;
+      productDetailsModal.style.display = 'block';
+      document.getElementById('closeProductDetails').onclick = () => productDetailsModal.style.display = 'none';
+    }));
+    closeProductDetails.onclick = () => productDetailsModal.style.display = 'none';
+    </script>
+</body>
+</html> 
